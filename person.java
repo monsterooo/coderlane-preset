@@ -1,4 +1,4 @@
-class person{
+public class person{
   private String name;
   person(String name){
     this.name = name;
