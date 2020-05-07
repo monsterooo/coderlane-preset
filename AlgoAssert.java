@@ -1,7 +1,6 @@
 import org.junit.Assert;
 
 import java.util.*;
-import static io.algocasts.problem.Helper.*;
 import java.util.function.Supplier;
 
 public class AlgoAssert {
@@ -12,30 +11,30 @@ public class AlgoAssert {
     ListNode e = expected, a = actual;
     while (e != null && a != null) {
       if (e.val != a.val)
-        throw new AssertionError("expected: " + linkedList2String(expected) + ", actual: " + linkedList2String(actual));
+        throw new AssertionError("expected: " + Helper.linkedList2String(expected) + ", actual: " + linkedList2String(actual));
       e = e.next;
       a = a.next;
     }
     if (e != null || a != null)
-      throw new AssertionError("expected: " + linkedList2String(expected) + ", actual: " + linkedList2String(actual));
+      throw new AssertionError("expected: " + Helper.linkedList2String(expected) + ", actual: " + linkedList2String(actual));
   }
 
   public static void assertEquals(TreeNode expected, TreeNode actual) {
     if (!isSameTree(expected, actual)) {
-      throw new AssertionError("expected: " + tree2String(expected) + ", actual: " + tree2String(actual));
+      throw new AssertionError("expected: " + Helper.tree2String(expected) + ", actual: " + tree2String(actual));
     }
   }
 
   public static <T> void assertEquals(List<T> expecteds, List<T> actuals) {
     if (expecteds != null && actuals != null) {
       if (expecteds.size() != actuals.size())
-        throw new AssertionError("expected: " + list2String(expecteds) + ", actual: " + list2String(actuals));
+        throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + list2String(actuals));
       for (int i = 0; i < expecteds.size(); ++i) {
         if (!expecteds.get(i).equals(actuals.get(i)))
-          throw new AssertionError("expected: " + list2String(expecteds) + ", actual: " + list2String(actuals));
+          throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + list2String(actuals));
       }
     } else if (expecteds != null || actuals != null)
-      throw new AssertionError("expected: " + list2String(expecteds) + ", actual: " + list2String(actuals));
+      throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + list2String(actuals));
   }
 
   public static <T> void assertUnorderEquals(List<T> expecteds, List<T> actuals) {
@@ -113,7 +112,7 @@ public class AlgoAssert {
       Assert.assertEquals(expecteds.size(), actuals.size());
       Set<List<T>> set = new HashSet<>(actuals);
       for (List<T> e: expecteds) {
-        String expectedStr = list2String(e);
+        String expectedStr = Helper.list2String(e);
         if (!set.contains(e))
           throw new AssertionError("The following expected list is not in actual lists: " + expectedStr);
       }
@@ -133,7 +132,7 @@ public class AlgoAssert {
       for (List<T> e: actuals)
         set.add(sort(e));
       for (List<T> e: expecteds) {
-        String expectedStr = list2String(e);
+        String expectedStr = Helper.list2String(e);
         if (!set.contains(sort(e)))
           throw new AssertionError("The following expected list is not in actual lists: " + expectedStr);
       }
@@ -159,7 +158,7 @@ public class AlgoAssert {
       }
     }
     if (!found)
-      throw new AssertionError(elem + " is not in " + array2String(array));
+      throw new AssertionError(elem + " is not in " + Helper.array2String(array));
   }
 
   // TODO: Don't use the following method. It is experimental.
