@@ -11,30 +11,30 @@ public class AlgoAssert {
     ListNode e = expected, a = actual;
     while (e != null && a != null) {
       if (e.val != a.val)
-        throw new AssertionError("expected: " + Helper.linkedList2String(expected) + ", actual: " + linkedList2String(actual));
+        throw new AssertionError("expected: " + Helper.linkedList2String(expected) + ", actual: " + Helper.linkedList2String(actual));
       e = e.next;
       a = a.next;
     }
     if (e != null || a != null)
-      throw new AssertionError("expected: " + Helper.linkedList2String(expected) + ", actual: " + linkedList2String(actual));
+      throw new AssertionError("expected: " + Helper.linkedList2String(expected) + ", actual: " + Helper.linkedList2String(actual));
   }
 
   public static void assertEquals(TreeNode expected, TreeNode actual) {
-    if (!isSameTree(expected, actual)) {
-      throw new AssertionError("expected: " + Helper.tree2String(expected) + ", actual: " + tree2String(actual));
+    if (!Helper.isSameTree(expected, actual)) {
+      throw new AssertionError("expected: " + Helper.tree2String(expected) + ", actual: " + Helper.tree2String(actual));
     }
   }
 
   public static <T> void assertEquals(List<T> expecteds, List<T> actuals) {
     if (expecteds != null && actuals != null) {
       if (expecteds.size() != actuals.size())
-        throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + list2String(actuals));
+        throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + Helper.list2String(actuals));
       for (int i = 0; i < expecteds.size(); ++i) {
         if (!expecteds.get(i).equals(actuals.get(i)))
-          throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + list2String(actuals));
+          throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + Helper.list2String(actuals));
       }
     } else if (expecteds != null || actuals != null)
-      throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + list2String(actuals));
+      throw new AssertionError("expected: " + Helper.list2String(expecteds) + ", actual: " + Helper.list2String(actuals));
   }
 
   public static <T> void assertUnorderEquals(List<T> expecteds, List<T> actuals) {
