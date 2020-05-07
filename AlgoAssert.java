@@ -169,7 +169,7 @@ public class AlgoAssert {
     for (int i = 0; i < One_Million; ++i) {
       T elem = rand.get();
       Integer cnt = counter.get(elem);
-      if (cnt == null) throw new AssertionError(elem + " is generated, but it is not in " + array2String(resultSet));
+      if (cnt == null) throw new AssertionError(elem + " is generated, but it is not in " + Helper.array2String(resultSet));
       counter.put(elem, cnt+1);
     }
     double expectedProbability = 1.0 / resultSet.length;
