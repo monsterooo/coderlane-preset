@@ -1,5 +1,3 @@
-// package io.algocasts.problem;
-
 import org.junit.Assert;
 
 import java.util.*;

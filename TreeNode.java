@@ -1,5 +1,3 @@
-// package io.algocasts.problem;
-
 /**
  * @author Hawstein
  */

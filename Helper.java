@@ -1,5 +1,3 @@
-// package io.algocasts.problem;
-
 import java.util.*;
 
 public class Helper {
